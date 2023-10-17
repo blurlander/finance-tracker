@@ -11,8 +11,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 10, 9, 23;
+    --background-end-rgb: 10, 9, 23;
   }
 }
 
@@ -24,4 +24,23 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+@layer utilities{
+
+  .btn{
+    @apply rounded-full text-gray-200 px-2 hover:text-white px-2 py-1 sm:py-2 sm:px-4 text-sm
+  }
+
+  .btn-danger{
+    @apply  bg-red-700   hover:bg-red-500 
+  }
+
+  .btn-primary{
+    @apply  bg-green-600 hover:bg-green-400 
+  }
+
+  .btn-warning{
+    @apply bg-orange-600 hover:bg-orange-400
+  }
 }
