@@ -15,7 +15,7 @@ const url = process.env.DATABASE;
 app.use(cookieParser());
 app.use(cors({
     credentials: true,
-    origin: ['http://localhost:3000']
+    origin: ['https://finance-tracker-app-kappa.vercel.app/']
 }));
 app.use(express.json());
 app.use('/api', routes);
