@@ -16,7 +16,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchUser() {
       try {
-        const response = await axios.get('http://localhost:8000/api/user', {
+        const response = await axios.get('https://finance-tracker-sepia.vercel.app/api/user', {
           withCredentials: true, // Equivalent to 'credentials: 'include''
         });
         const userData = response.data;

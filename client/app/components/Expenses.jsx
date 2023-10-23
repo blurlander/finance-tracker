@@ -4,13 +4,6 @@ import ExpenseItem from './ExpenseItem'
 
 const Expenses = ({expenseList, userId, categoryList}) => {
 
-    // Function to find category color
-  const findCategoryColor = (categoryList, expenseCategory) => {
-    const matchedCategory = categoryList.find(category => category.name === expenseCategory);
-    return matchedCategory ? matchedCategory.color : null;
-  };
-
-
 
   return (
     <section className='p-6 my-12 bg-slate-900 rounded-2xl flex flex-col  gap-3 items-start'>

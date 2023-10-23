@@ -51,7 +51,7 @@ const Balance = ({ userId, balance, categoryList }) => {
     const amount = formData.get('amount');
     const desc = formData.get('desc');
 
-    const response = await fetch('http://localhost:8000/api/addIncome', {
+    const response = await fetch('https://finance-tracker-sepia.vercel.app/api/addIncome', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -107,7 +107,7 @@ const Balance = ({ userId, balance, categoryList }) => {
 
 
 
-    const response = await fetch('http://localhost:8000/api/addExpense', {
+    const response = await fetch('https://finance-tracker-sepia.vercel.app/api/addExpense', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',

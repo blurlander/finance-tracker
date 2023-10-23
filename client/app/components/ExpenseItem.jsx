@@ -46,7 +46,7 @@ const ExpenseItem = ({ color, amount, category, text, index, userId, categoryLis
     if (confirm(text) == true) {
       e.preventDefault();
 
-      const response = await fetch('http://localhost:8000/api/deleteExpense', {
+      const response = await fetch('https://finance-tracker-sepia.vercel.app/api/deleteExpense', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
@@ -106,7 +106,7 @@ const ExpenseItem = ({ color, amount, category, text, index, userId, categoryLis
       category = catVal;
     }
 
-    const response = await fetch('http://localhost:8000/api/editExpense', {
+    const response = await fetch('https://finance-tracker-sepia.vercel.app/api/editExpense', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',

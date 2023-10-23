@@ -10,7 +10,7 @@ const Navbar = ({user}) => {
 
   const handleSignOut = async () => {
     try {
-      await fetch('http://localhost:8000/api/logout', {
+      await fetch('https://finance-tracker-sepia.vercel.app/api/logout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
