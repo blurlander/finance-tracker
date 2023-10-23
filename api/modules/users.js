@@ -23,6 +23,14 @@ const userSchema = new mongoose.Schema({
         type: [Object],
         required: true
     },
+    balance: {
+        type: Number,
+        required: true
+    },
+    categories: {
+        type: [Object],
+        required: true
+    },
     // Define your schema fields here
 });
 

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { useRouter } from 'next/navigation'
 import Alert from '../components/Alert';
 import AlertContext from '../context/AlertContext';

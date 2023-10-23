@@ -7,7 +7,7 @@ const routes = require("./modules/routes");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 
-dotenv.config({ path: './.env' });
+dotenv.config({ path: './config.env' });
 
 
 

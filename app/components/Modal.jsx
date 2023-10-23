@@ -12,7 +12,9 @@ const Modal = ({ children, flag, onClose}) => {
                 {children}
 
             </div>
+ 
         </section>
+        
 
 
     )

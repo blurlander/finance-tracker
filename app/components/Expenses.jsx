@@ -1,12 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ExpenseItem from './ExpenseItem'
-import { curencyFormat } from '../lib/utils'
 
-const Expenses = () => {
+
+const Expenses = ({expenseList, userId, categoryList}) => {
+
+    // Function to find category color
+  const findCategoryColor = (categoryList, expenseCategory) => {
+    const matchedCategory = categoryList.find(category => category.name === expenseCategory);
+    return matchedCategory ? matchedCategory.color : null;
+  };
+
+
+
   return (
-    <section className='p-6 my-12 bg-slate-900 rounded-2xl flex flex-col  gap-3 items-start'>      
-        <h1 className='py-4'>My Expenses</h1>
-        <ExpenseItem text={"merhaba"} color={"green"} category={"Food"} amount={curencyFormat(100)}/>
+    <section className='p-6 my-12 bg-slate-900 rounded-2xl flex flex-col  gap-3 items-start'>
+      <h1 className='py-4 mr-auto'>Expenses</h1>
+      {expenseList.map((expense, index) => (
+        <ExpenseItem
+          key={index}
+          index={index} // Make sure to provide a unique key for each ExpenseItem
+          text={expense.desc}
+          color={expense.color}
+          category={expense.category}
+          amount={expense.amount}
+          userId={userId}
+          categoryList={categoryList}
+        />
+      ))}
     </section>
   )
 }
