@@ -14,7 +14,7 @@ dotenv.config({ path: './config.env' });
 const url = process.env.DATABASE;
 app.use(cookieParser());
 const corsOptions = {
-    origin: 'https://finance-tracker-app-kappa.vercel.app',
+    origin: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204 // HTTP status code to respond with for successful OPTIONS requests
