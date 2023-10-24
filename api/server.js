@@ -13,10 +13,14 @@ dotenv.config({ path: './config.env' });
 
 const url = process.env.DATABASE;
 app.use(cookieParser());
-app.use(cors({
+const corsOptions = {
+    origin: 'https://finance-tracker-app-kappa.vercel.app',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
-    origin: 'https://finance-tracker-app-kappa.vercel.app/'
-}));
+    optionsSuccessStatus: 204 // HTTP status code to respond with for successful OPTIONS requests
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/api', routes);
 
