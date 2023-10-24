@@ -1,16 +1,20 @@
-const corsMiddleware = (req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://finance-tracker-app-kappa.vercel.app');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    res.header('Access-Control-Allow-Credentials', true);
+const allowCors = (fn) => async (req, res) => {
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    res.setHeader('Access-Control-Allow-Origin', 'https://finance-tracker-app-kappa.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS, PATCH, DELETE, POST, PUT');
+    res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
 
     if (req.method === 'OPTIONS') {
-        // Respond to preflight requests
-        res.sendStatus(204);
-    } else {
-        // Pass control to the next middleware
-        next();
+        res.status(200).end();
+        return;
     }
+
+    return await fn(req, res);
 };
 
-module.exports = corsMiddleware;
+const handler = (req, res) => {
+    const d = new Date();
+    res.end(d.toString());
+};
+
+module.exports = allowCors(handler);
