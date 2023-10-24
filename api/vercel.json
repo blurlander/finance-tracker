@@ -1,12 +1,26 @@
 {
-    "version":2,
+    "version": 2,
     "builds": [
-        {"src": "*.js", "use": "@vercel/node" }
+      {
+        "src": "server.js",  
+        "use": "@vercel/node"
+      }
     ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/"
-        }
+      {
+        "src": "/api/(.*)",
+        "methods": ["OPTIONS"], 
+        "headers": {
+          "Access-Control-Allow-Origin": "https://finance-tracker-app-kappa.vercel.app",
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+          "Access-Control-Allow-Credentials": true
+        },
+        "continue": true
+      },
+      {
+        "src": "/api/(.*)",
+        "dest": "api/$1" 
+      }
     ]
-}
+  }
