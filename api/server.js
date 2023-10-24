@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const PORT = "8000";
-const corsMiddleware = require('./modules/cors'); // Import the custom CORS middleware
+const allowCors = require('./modules/cors'); // Import the custom CORS middleware
 const mongoose = require("mongoose");
 const routes = require("./modules/routes");
 const cookieParser = require("cookie-parser");
@@ -9,14 +9,11 @@ const dotenv = require("dotenv");
 
 dotenv.config({ path: './config.env' });
 
-
-
 const url = process.env.DATABASE;
 app.use(cookieParser());
-app.use(corsMiddleware); // Use the custom CORS middleware
+app.use(allowCors); // Use the custom CORS middleware
 app.use(express.json());
 app.use('/api', routes);
-
 
 mongoose.connect(url, {
     useNewUrlParser: true,
