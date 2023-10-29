@@ -11,7 +11,12 @@ const PORT = process.env.PORT || 8000;
 dotenv.config({ path: './config.env' });
 
 const url = process.env.DATABASE;
-app.use(cors()); 
+const corsOptions = {
+    origin: 'https://653e4ec9b4c3ec69c7263324--legendary-shortbread-5a0972.netlify.app',
+    credentials: true, // Enable credentials (cookies, authorization headers, etc.)
+  };
+  
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(express.json());
 app.use('/api', routes);
