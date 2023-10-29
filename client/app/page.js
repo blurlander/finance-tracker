@@ -5,7 +5,6 @@ import Expenses from './components/Expenses'
 import Stats from './components/Stats'
 import Navbar from './components/Navbar'
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import Income from './components/Income'
 
 export default function Home() {
@@ -15,21 +14,30 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchUser() {
-      try {
-        const response = await axios.get('https://finance-tracker-api-c4uj.onrender.com/api/user', {
-          withCredentials: true, // Equivalent to 'credentials: 'include''
-        });
-        const userData = response.data;
-        setUser(userData);
-        setIsLoading(false);
-      } catch (error) {
-        console.error('Error fetching user:', error);
-        setIsLoading(false);
-      }
+        try {
+            const response = await fetch('https://finance-tracker-api-c4uj.onrender.com/api/user', {
+                method: 'GET',
+                credentials: 'include', // Include credentials for cross-origin requests
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (response.ok) {
+                const userData = await response.json();
+                setUser(userData);
+            } else {
+                throw new Error('Request failed with status: ' + response.status);
+            }
+        } catch (error) {
+            console.error('Error fetching user:', error);
+        } finally {
+            setIsLoading(false);
+        }
     }
 
     fetchUser();
-  },[])
+}, []);
 
   if(isLoading) {
     return (
