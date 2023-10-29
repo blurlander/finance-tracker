@@ -12,7 +12,7 @@ dotenv.config({ path: './config.env' });
 
 const url = process.env.DATABASE;
 const corsOptions = {
-    origin: 'https://653e4ec9b4c3ec69c7263324--legendary-shortbread-5a0972.netlify.app',
+    origin: 'https://legendary-shortbread-5a0972.netlify.app',
     credentials: true, // Enable credentials (cookies, authorization headers, etc.)
   };
   
