@@ -37,8 +37,7 @@ router.post('/register', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
-
-    console.log('Received login request:', req.body); // Log the request body
+    
     const user = await User.findOne({ email: req.body.email })
 
     if (!user) {
@@ -68,6 +67,8 @@ router.post('/login', async (req, res) => {
 router.get('/user', async (req, res) => {
     try {
         const cookie = req.cookies['jwt']
+
+        console.log('Received cookie:', cookie);
 
         const claims = jwt.verify(cookie, 'secret')
 
