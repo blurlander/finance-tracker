@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express();
-const PORT = "8000";
 const cors = require("cors");
 const mongoose = require("mongoose");
 const routes = require("./modules/routes");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
+
+const PORT = process.env.PORT || 8000;
 
 dotenv.config({ path: './config.env' });
 
