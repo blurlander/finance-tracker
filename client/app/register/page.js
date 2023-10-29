@@ -25,7 +25,7 @@ export default function page() {
 
         e.preventDefault();
 
-        const response = await fetch('https://finance-tracker-sepia.vercel.app/api/register', {
+        const response = await fetch('https://finance-tracker-api-c4uj.onrender.com/api/register', {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

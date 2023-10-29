@@ -40,7 +40,7 @@ const IncomeItem = ({ amount, text, index, userId }) => {
         const amount = formData.get('amount');
         const desc = formData.get('desc');
     
-        const response = await fetch('https://finance-tracker-sepia.vercel.app/api/editIncome', {
+        const response = await fetch('https://finance-tracker-api-c4uj.onrender.com/api/editIncome', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
@@ -70,7 +70,7 @@ const IncomeItem = ({ amount, text, index, userId }) => {
         if (confirm(text) == true) {
           e.preventDefault();
       
-          const response = await fetch('https://finance-tracker-sepia.vercel.app/api/deleteIncome', {
+          const response = await fetch('https://finance-tracker-api-c4uj.onrender.com/api/deleteIncome', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
