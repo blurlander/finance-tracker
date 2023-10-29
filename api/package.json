@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
     "dev": "nodemon server",
-    "build": "npm i"
+    "build": "echo 'Build step not required for this project'"
   },
   "author": "Efe Özden",
   "license": "ISC",
