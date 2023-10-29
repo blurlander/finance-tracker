@@ -37,8 +37,6 @@ const Stats = ({ expenseList }) => {
       {
         label: 'Expenses',
         data: data,
-        responsive: true,
-        maintainAspectRatio: true,
         backgroundColor: backgroundColors,
         borderColor: [],
       },
@@ -49,7 +47,10 @@ const Stats = ({ expenseList }) => {
     <section className='p-6 my-12 bg-slate-900 rounded-2xl flex flex-col items-center' id='stats'>
       <h1 className='py-4 mb-4'>Stats</h1>
       <div className='w-2/3 sm:w-1/3 p-2'>
-        <Doughnut data={chartData} />
+        <Doughnut data={chartData} options={{
+          responsive: true,
+          maintainAspectRatio: true,
+        }}/>
       </div>
 
     </section>
