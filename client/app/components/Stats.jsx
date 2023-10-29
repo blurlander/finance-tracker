@@ -37,6 +37,8 @@ const Stats = ({ expenseList }) => {
       {
         label: 'Expenses',
         data: data,
+        responsive: true,
+        maintainAspectRatio: true,
         backgroundColor: backgroundColors,
         borderColor: [],
       },
